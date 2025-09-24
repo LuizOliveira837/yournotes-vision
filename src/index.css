@@ -9,34 +9,34 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 250 100% 99%;
-    --foreground: 240 10% 10%;
+    --foreground: 224 71% 4%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card-foreground: 224 71% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
+    --popover-foreground: 224 71% 4%;
 
-    --primary: 249 100% 59%;
+    --primary: 220 90% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 250 50% 96%;
-    --secondary-foreground: 240 10% 30%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 8% 46%;
 
-    --muted: 250 20% 97%;
-    --muted-foreground: 240 5% 64%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
 
-    --accent: 249 100% 96%;
-    --accent-foreground: 249 100% 59%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 90% 56%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 249 100% 59%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 90% 56%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +56,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 240 10% 4%;
-    --foreground: 250 100% 99%;
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
 
-    --card: 240 15% 6%;
-    --card-foreground: 250 100% 99%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 240 15% 6%;
-    --popover-foreground: 250 100% 99%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 249 100% 59%;
+    --primary: 220 90% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 10% 12%;
-    --secondary-foreground: 250 100% 99%;
+    --secondary: 215 27% 12%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 240 10% 8%;
-    --muted-foreground: 240 5% 64%;
+    --muted: 215 27% 12%;
+    --muted-foreground: 217 10% 64%;
 
-    --accent: 240 15% 15%;
-    --accent-foreground: 249 100% 59%;
+    --accent: 215 27% 12%;
+    --accent-foreground: 220 90% 56%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 240 10% 15%;
-    --input: 240 10% 15%;
-    --ring: 249 100% 59%;
+    --border: 215 27% 12%;
+    --input: 215 27% 12%;
+    --ring: 220 90% 56%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +100,12 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
   }
 }

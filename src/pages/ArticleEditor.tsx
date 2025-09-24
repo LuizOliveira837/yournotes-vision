@@ -113,15 +113,19 @@ const ArticleEditor = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/5 to-primary/5">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
+      
       {/* Header */}
-      <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-40">
+      <header className="border-b bg-card/90 backdrop-blur-xl sticky top-0 z-40 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Button 
               variant="ghost" 
               size="sm"
               onClick={() => window.location.href = "/dashboard"}
+              className="hover:bg-secondary/80 transition-all duration-200"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Voltar
@@ -130,24 +134,24 @@ const ArticleEditor = () => {
             <div className="flex items-center gap-2">
               {selectedTopicData && (
                 <div className="flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full ${selectedTopicData.color}`} />
-                  <span className="text-sm text-muted-foreground">
+                  <div className={`w-2.5 h-2.5 rounded-full ${selectedTopicData.color}`} />
+                  <span className="text-sm text-muted-foreground font-medium">
                     {selectedTopicData.title}
                   </span>
                 </div>
               )}
               
               {isPublished && (
-                <Badge variant="secondary" className="text-xs">
+                <Badge variant="secondary" className="text-xs font-medium bg-green-500/10 text-green-600 border-green-500/20">
                   Publicado
                 </Badge>
               )}
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {lastSaved && (
-              <span className="text-xs text-muted-foreground hidden sm:block">
+              <span className="text-xs text-muted-foreground hidden sm:block font-medium">
                 Salvo {formatLastSaved(lastSaved)}
               </span>
             )}
@@ -157,14 +161,20 @@ const ArticleEditor = () => {
               size="sm"
               onClick={() => handleSave()}
               disabled={isSaving}
+              className="h-9 px-4 font-medium border-2 hover:border-primary/50 transition-all duration-200"
             >
               <Save className="h-4 w-4 mr-2" />
-              {isSaving ? "Salvando..." : "Salvar"}
+              {isSaving ? (
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 border border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin" />
+                  Salvando...
+                </div>
+              ) : "Salvar"}
             </Button>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" className="h-9 w-9 p-0 hover:bg-secondary/80 transition-all duration-200">
                   <MoreHorizontal className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -184,14 +194,14 @@ const ArticleEditor = () => {
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="space-y-6">
-          {/* Topic Selection */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex-1">
-              <Label htmlFor="topic" className="text-sm font-medium mb-2 block">
-                Tópico
-              </Label>
+        <div className="container mx-auto px-4 py-8 max-w-4xl relative">
+          <div className="space-y-8">
+            {/* Topic Selection */}
+            <div className="flex flex-col sm:flex-row gap-6 animate-fade-in">
+              <div className="flex-1">
+                <Label htmlFor="topic" className="text-base font-semibold mb-3 block">
+                  Tópico
+                </Label>
               <Select value={selectedTopic} onValueChange={setSelectedTopic}>
                 <SelectTrigger className="h-11">
                   <SelectValue placeholder="Selecione um tópico..." />
@@ -221,22 +231,22 @@ const ArticleEditor = () => {
             </div>
           </div>
 
-          {/* Title */}
-          <div>
-            <Input
-              placeholder="Título da anotação..."
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="text-2xl font-bold border-0 px-0 h-auto py-2 text-foreground placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
-              style={{ fontSize: '2rem', lineHeight: '2.5rem' }}
-            />
-          </div>
+            {/* Title */}
+            <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
+              <Input
+                placeholder="Título da anotação..."
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="text-3xl font-bold border-0 px-0 h-auto py-3 text-foreground placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent"
+                style={{ fontSize: '2.25rem', lineHeight: '2.75rem' }}
+              />
+            </div>
 
-          {/* Content */}
-          <div className="relative">
-            <Textarea
-              ref={textareaRef}
-              placeholder="Comece a escrever sua anotação aqui...
+            {/* Content */}
+            <div className="relative animate-slide-up" style={{ animationDelay: "0.2s" }}>
+              <Textarea
+                ref={textareaRef}
+                placeholder="Comece a escrever sua anotação aqui...
 
 Use markdown para formatação:
 # Título
@@ -248,34 +258,34 @@ Use markdown para formatação:
 ```código```
 
 [link](url)"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              className="min-h-[500px] resize-none text-base leading-relaxed border-0 px-0 py-4 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground/70"
-              style={{ 
-                lineHeight: '1.75',
-                fontSize: '1rem'
-              }}
-            />
-          </div>
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                className="min-h-[500px] resize-none text-lg leading-relaxed border-0 px-0 py-6 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground/50 bg-transparent"
+                style={{ 
+                  lineHeight: '1.8',
+                  fontSize: '1.125rem'
+                }}
+              />
+            </div>
 
-          {/* Word count */}
-          <div className="flex items-center justify-between text-sm text-muted-foreground pt-4 border-t">
-            <div className="flex items-center gap-4">
-              <span>
-                {content.length} caracteres
-              </span>
-              <span>
-                {content.trim().split(/\s+/).filter(word => word.length > 0).length} palavras
-              </span>
+            {/* Word count */}
+            <div className="flex items-center justify-between text-sm text-muted-foreground pt-6 border-t border-border/50 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+              <div className="flex items-center gap-6">
+                <span className="font-medium">
+                  {content.length.toLocaleString()} caracteres
+                </span>
+                <span className="font-medium">
+                  {content.trim().split(/\s+/).filter(word => word.length > 0).length.toLocaleString()} palavras
+                </span>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4" />
+                <span className="font-medium">
+                  {new Date().toLocaleDateString('pt-BR')}
+                </span>
+              </div>
             </div>
-            
-            <div className="flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
-              <span>
-                {new Date().toLocaleDateString('pt-BR')}
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -99,15 +99,20 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/10 to-primary/5">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
+      
       {/* Header */}
-      <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-40">
+      <header className="border-b bg-card/90 backdrop-blur-xl sticky top-0 z-40 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary rounded-lg">
+            <div className="p-2 bg-gradient-to-r from-primary to-primary/80 rounded-xl shadow-md">
               <PenTool className="h-5 w-5 text-primary-foreground" />
             </div>
-            <h1 className="text-xl font-bold">YourNotes</h1>
+            <h1 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              YourNotes
+            </h1>
           </div>
 
           <div className="flex items-center gap-4">
@@ -117,15 +122,15 @@ const Dashboard = () => {
                 placeholder="Buscar tópicos e anotações..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 h-9"
+                className="pl-10 h-10 bg-background/50 border-border/50 backdrop-blur-sm focus:bg-background focus:border-primary/50 transition-all duration-200"
               />
             </div>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-9 w-9 rounded-full">
-                  <Avatar className="h-9 w-9">
-                    <AvatarFallback className="bg-primary text-primary-foreground text-sm">
+                <Button variant="ghost" className="relative h-10 w-10 rounded-full ring-2 ring-primary/10 hover:ring-primary/20 transition-all duration-200">
+                  <Avatar className="h-10 w-10">
+                    <AvatarFallback className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-sm font-semibold">
                       JS
                     </AvatarFallback>
                   </Avatar>
@@ -147,61 +152,65 @@ const Dashboard = () => {
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Search on mobile */}
-        <div className="md:hidden mb-6">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Buscar tópicos e anotações..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 h-11"
-            />
+        <div className="container mx-auto px-4 py-8 relative">
+          {/* Search on mobile */}
+          <div className="md:hidden mb-6">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Buscar tópicos e anotações..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 h-12 text-base bg-background/80 border-border/50 backdrop-blur-sm focus:bg-background focus:border-primary/50 transition-all duration-200"
+              />
+            </div>
           </div>
-        </div>
 
-        {/* Quick Actions */}
-        <div className="mb-8">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
-              size="lg" 
-              className="flex-1 h-12 text-base font-medium"
-              onClick={() => window.location.href = "/article/new"}
-            >
-              <Plus className="mr-2 h-5 w-5" />
-              Nova Anotação
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="flex-1 h-12 text-base font-medium"
-              onClick={() => window.location.href = "/topic/new"}
-            >
-              <Folder className="mr-2 h-5 w-5" />
-              Novo Tópico
-            </Button>
+          {/* Quick Actions */}
+          <div className="mb-8">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                size="lg" 
+                className="flex-1 h-14 text-base font-semibold bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg shadow-primary/25 transition-all duration-200 animate-scale-in"
+                onClick={() => window.location.href = "/article/new"}
+              >
+                <Plus className="mr-2 h-5 w-5" />
+                Nova Anotação
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="flex-1 h-14 text-base font-semibold border-2 hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 animate-scale-in"
+                onClick={() => window.location.href = "/topic/new"}
+                style={{ animationDelay: "0.1s" }}
+              >
+                <Folder className="mr-2 h-5 w-5" />
+                Novo Tópico
+              </Button>
+            </div>
           </div>
-        </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Topics Grid */}
             <section>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold">Seus Tópicos</h2>
-                <Badge variant="secondary" className="text-sm">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  Seus Tópicos
+                </h2>
+                <Badge variant="secondary" className="text-sm font-medium px-3 py-1">
                   {filteredTopics.length} tópicos
                 </Badge>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                {filteredTopics.map((topic) => (
+              <div className="grid sm:grid-cols-2 gap-6">{/* ... keep existing code (topics mapping) */}
+                {filteredTopics.map((topic, index) => (
                   <Card 
                     key={topic.id} 
-                    className="hover:shadow-lg transition-all cursor-pointer group border-2 hover:border-primary/20"
+                    className="hover:shadow-xl transition-all duration-300 cursor-pointer group border-2 hover:border-primary/30 bg-card/80 backdrop-blur-sm hover:bg-card animate-slide-up"
                     onClick={() => window.location.href = `/topic/${topic.id}`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <CardHeader className="pb-3">
                       <div className="flex items-start gap-3">
