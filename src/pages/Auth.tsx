@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PenTool } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 const loginSchema = z.object({
   email: z.string().email("Email inválido"),
@@ -71,14 +71,10 @@ const Auth = () => {
       
       <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8 animate-fade-in">
-          <div className="flex items-center justify-center mb-6">
-            <div className="p-4 bg-gradient-to-r from-foreground to-foreground/90 rounded-3xl shadow-lg shadow-foreground/10">
-              <PenTool className="h-10 w-10 text-background" />
-            </div>
+          <div className="flex flex-col items-center mb-6">
+            <Logo className="mb-4" />
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent mb-3">
-            YourNotes
-          </h1>
           <p className="text-lg text-muted-foreground">Suas ideias, organizadas e acessíveis</p>
         </div>
 

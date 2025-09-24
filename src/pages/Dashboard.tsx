@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Search, FileText, Folder, Calendar, User, LogOut, PenTool } from "lucide-react";
+import { Plus, Search, FileText, Folder, Calendar, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator, 
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
+import { Logo } from "@/components/ui/logo";
 
 interface Topic {
   id: string;
@@ -107,12 +108,7 @@ const Dashboard = () => {
       <header className="border-b bg-card/90 backdrop-blur-xl sticky top-0 z-40 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-r from-foreground to-foreground/90 rounded-xl shadow-md">
-              <PenTool className="h-5 w-5 text-background" />
-            </div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              YourNotes
-            </h1>
+            <Logo variant="compact" />
           </div>
 
           <div className="flex items-center gap-4">
