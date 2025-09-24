@@ -72,10 +72,9 @@ const Auth = () => {
       <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8 animate-fade-in">
           <div className="flex flex-col items-center mb-6">
-            <Logo className="mb-4" />
+            <Logo showSlogan={true} className="mb-4" />
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
-          <p className="text-lg text-muted-foreground">Suas ideias, organizadas e acessíveis</p>
         </div>
 
         <Card className="border-0 shadow-2xl bg-card/90 backdrop-blur-xl animate-slide-up">
