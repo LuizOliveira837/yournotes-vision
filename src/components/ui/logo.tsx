@@ -10,10 +10,18 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
   if (variant === "compact") {
     return (
       <div className={cn("flex items-center gap-3", className)}>
-        {/* Simple geometric icon similar to Lovable */}
-        <div className="relative w-8 h-8">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 rounded-lg transform rotate-12" />
-          <div className="absolute top-1 left-1 w-4 h-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-md" />
+        {/* Fountain pen nib icon - compact version */}
+        <div className="w-8 h-8 flex items-center justify-center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-foreground">
+            {/* Pen grip/holder */}
+            <rect x="10" y="16" width="4" height="6" rx="1" fill="currentColor" opacity="0.8"/>
+            {/* Main nib body - pentagon shape */}
+            <path d="M12 2 L8 12 L10 16 L14 16 L16 12 Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+            {/* Center slit */}
+            <line x1="12" y1="6" x2="12" y2="14" stroke="white" strokeWidth="1"/>
+            {/* Breathing hole */}
+            <circle cx="12" cy="8" r="1.5" fill="white"/>
+          </svg>
         </div>
         <span className="text-lg font-medium tracking-tight text-foreground">Your Notes</span>
       </div>
@@ -23,11 +31,20 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
   return (
     <div className={cn("flex flex-col items-center gap-4", className)}>
       {/* Main logo with icon and text */}
-      <div className="flex items-center gap-3">
-        {/* Lovable-style geometric icon */}
-        <div className="relative w-10 h-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 rounded-xl shadow-lg shadow-orange-500/25" />
-          <div className="absolute top-1.5 left-1.5 w-5 h-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-sm" />
+      <div className="flex items-center gap-4">
+        {/* Fountain pen nib icon - larger version */}
+        <div className="w-12 h-12 flex items-center justify-center">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" className="text-foreground">
+            {/* Pen grip/holder */}
+            <rect x="15" y="24" width="6" height="9" rx="2" fill="currentColor" opacity="0.7"/>
+            <rect x="14" y="26" width="8" height="2" rx="1" fill="currentColor" opacity="0.5"/>
+            {/* Main nib body - pentagon shape */}
+            <path d="M18 3 L10 18 L15 24 L21 24 L26 18 Z" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+            {/* Center slit */}
+            <line x1="18" y1="8" x2="18" y2="20" stroke="white" strokeWidth="1.5"/>
+            {/* Breathing hole */}
+            <circle cx="18" cy="12" r="2" fill="white"/>
+          </svg>
         </div>
         
         <h1 className="text-2xl font-semibold tracking-tight text-foreground">
