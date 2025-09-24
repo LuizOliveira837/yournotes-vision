@@ -10,8 +10,8 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
   if (variant === "compact") {
     return (
       <div className={cn("flex items-center gap-2", className)}>
-        <h1 className="text-xl font-mono font-light tracking-wide text-foreground transform -rotate-1">
-          Your Notes
+        <h1 className="text-xl font-mono font-light tracking-wide text-foreground">
+          YourNotes
         </h1>
       </div>
     );
@@ -22,14 +22,12 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
       {/* Large handwritten style logo */}
       <div className="text-center">
         <h1 className="text-5xl md:text-6xl font-mono font-light tracking-wide text-foreground">
-          Your Notes
+          YourNotes
         </h1>
         
         {showSlogan && (
-          <p className="text-sm text-muted-foreground font-light italic mt-3 opacity-0 animate-fade-in animation-delay-500">
-            <span className="inline-block animate-typewriter overflow-hidden whitespace-nowrap border-r-2 border-primary/50 pr-1">
-              I think better when I write.
-            </span>
+          <p className="text-sm text-muted-foreground font-light italic mt-3">
+            I think better when I write<span className="animate-blink">.</span>
           </p>
         )}
       </div>
