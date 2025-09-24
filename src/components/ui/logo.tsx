@@ -17,7 +17,7 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
             </div>
           </div>
         </div>
-        <span className="text-lg font-medium tracking-tight">YourNotes</span>
+        <span className="text-lg font-medium tracking-tight">Your Notes</span>
       </div>
     );
   }
@@ -46,7 +46,7 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
       
       <div className="text-center">
         <h1 className="text-2xl font-semibold tracking-tight text-foreground mb-2">
-          YourNotes
+          Your Notes
         </h1>
         {showSlogan && (
           <p className="text-sm text-muted-foreground font-light italic animate-fade-in opacity-0 animation-delay-500">
