@@ -107,8 +107,8 @@ const Dashboard = () => {
       <header className="border-b bg-card/90 backdrop-blur-xl sticky top-0 z-40 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-r from-primary to-primary/80 rounded-xl shadow-md">
-              <PenTool className="h-5 w-5 text-primary-foreground" />
+            <div className="p-2 bg-gradient-to-r from-foreground to-foreground/90 rounded-xl shadow-md">
+              <PenTool className="h-5 w-5 text-background" />
             </div>
             <h1 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               YourNotes
@@ -128,9 +128,9 @@ const Dashboard = () => {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-10 w-10 rounded-full ring-2 ring-primary/10 hover:ring-primary/20 transition-all duration-200">
+                <Button variant="ghost" className="relative h-10 w-10 rounded-full ring-2 ring-foreground/10 hover:ring-foreground/20 transition-all duration-200">
                   <Avatar className="h-10 w-10">
-                    <AvatarFallback className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-sm font-semibold">
+                    <AvatarFallback className="bg-gradient-to-r from-foreground to-foreground/90 text-background text-sm font-semibold">
                       JS
                     </AvatarFallback>
                   </Avatar>
@@ -171,7 +171,7 @@ const Dashboard = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="flex-1 h-14 text-base font-semibold bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg shadow-primary/25 transition-all duration-200 animate-scale-in"
+                className="flex-1 h-14 text-base font-semibold bg-gradient-to-r from-foreground to-foreground/90 hover:from-foreground/90 hover:to-foreground shadow-lg shadow-foreground/10 transition-all duration-200 animate-scale-in"
                 onClick={() => window.location.href = "/article/new"}
               >
                 <Plus className="mr-2 h-5 w-5" />
@@ -180,7 +180,7 @@ const Dashboard = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="flex-1 h-14 text-base font-semibold border-2 hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 animate-scale-in"
+                className="flex-1 h-14 text-base font-semibold border-2 hover:border-foreground/50 hover:bg-foreground/5 transition-all duration-200 animate-scale-in"
                 onClick={() => window.location.href = "/topic/new"}
                 style={{ animationDelay: "0.1s" }}
               >
