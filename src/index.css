@@ -108,4 +108,8 @@ All colors MUST be HSL.
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
   }
+
+  .animation-delay-500 {
+    animation-delay: 0.5s;
+  }
 }

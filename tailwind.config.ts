@@ -79,6 +79,8 @@ export default {
         "slide-up": "slide-up 0.3s ease-out",
         "scale-in": "scale-in 0.2s ease-out",
         "float": "float 6s ease-in-out infinite",
+        "typewriter": "typewriter 2s steps(26, end) 1s forwards",
+        "blink": "blink 1s step-end infinite 2s",
       },
       keyframes: {
         "accordion-down": {
@@ -134,7 +136,15 @@ export default {
           "50%": {
             transform: "translateY(-10px)"
           }
-        }
+        },
+        "typewriter": {
+          "0%": { width: "0" },
+          "100%": { width: "100%" },
+        },
+        "blink": {
+          "0%, 50%": { borderColor: "transparent" },
+          "51%, 100%": { borderColor: "hsl(var(--primary))" },
+        },
       },
     },
   },

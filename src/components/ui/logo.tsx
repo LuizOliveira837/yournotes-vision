@@ -23,24 +23,36 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
   }
 
   return (
-    <div className={cn("flex flex-col items-center gap-3", className)}>
+    <div className={cn("flex flex-col items-center gap-4", className)}>
       <div className="relative">
-        <div className="w-12 h-12 bg-gradient-to-br from-foreground via-foreground/90 to-foreground/80 rounded-2xl flex items-center justify-center shadow-lg shadow-foreground/20">
-          <div className="w-5 h-5 bg-background rounded-full relative">
-            <div className="absolute -top-1 -right-1 w-1.5 h-4 bg-foreground/70 rounded-full transform rotate-45" />
-            <div className="absolute top-1.5 left-1.5 w-2 h-0.5 bg-foreground/30 rounded-full" />
+        {/* Fountain pen nib */}
+        <div className="w-14 h-14 bg-gradient-to-br from-foreground via-foreground/95 to-foreground/85 rounded-lg flex items-center justify-center shadow-xl shadow-foreground/25 transform rotate-12">
+          {/* Pen nib shape */}
+          <div className="relative">
+            {/* Main nib body */}
+            <div className="w-6 h-8 bg-gradient-to-b from-background/95 to-background/90 rounded-t-full rounded-b-sm border border-foreground/20">
+              {/* Center slit */}
+              <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-0.5 h-4 bg-foreground/40 rounded-full" />
+              {/* Breathing hole */}
+              <div className="absolute top-1.5 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-foreground/30 rounded-full" />
+            </div>
+            {/* Nib tip */}
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gradient-to-b from-background to-foreground/80 rounded-full" />
           </div>
         </div>
-        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-primary/20 rounded-full animate-pulse" />
+        {/* Ink dot animation */}
+        <div className="absolute -bottom-2 -right-2 w-2 h-2 bg-primary/40 rounded-full animate-pulse" />
       </div>
       
       <div className="text-center">
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+        <h1 className="text-2xl font-semibold tracking-tight text-foreground mb-2">
           YourNotes
         </h1>
         {showSlogan && (
-          <p className="text-sm text-muted-foreground mt-1 font-light italic">
-            I think better when I write
+          <p className="text-sm text-muted-foreground font-light italic animate-fade-in opacity-0 animation-delay-500">
+            <span className="inline-block animate-[typewriter_2s_steps(26,end)_1s_forwards] overflow-hidden whitespace-nowrap border-r-2 border-primary/50 pr-1">
+              I think better when I write
+            </span>
           </p>
         )}
       </div>
