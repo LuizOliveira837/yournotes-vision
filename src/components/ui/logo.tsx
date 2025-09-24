@@ -26,7 +26,7 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
         </h1>
         
         {showSlogan && (
-          <p className="text-sm text-muted-foreground font-light italic mt-3">
+          <p className="text-lg text-muted-foreground font-light italic mt-4">
             I think better when I write<span className="animate-blink">.</span>
           </p>
         )}
