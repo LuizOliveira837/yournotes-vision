@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { ArrowLeft, Save, Eye, Settings, Calendar, Folder, MoreHorizontal } from "lucide-react";
+import { ArrowLeft, Save, Eye, Settings, Calendar, Folder, MoreHorizontal, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -268,9 +268,9 @@ Use markdown para formatação:
               />
             </div>
 
-            {/* Word count */}
-            <div className="flex items-center justify-between text-sm text-muted-foreground pt-6 border-t border-border/50 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <div className="flex items-center gap-6">
+            {/* Article Stats */}
+            <div className="flex items-center justify-between pt-6 border-t border-border/50 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+              <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <span className="font-medium">
                   {content.length.toLocaleString()} caracteres
                 </span>
@@ -279,11 +279,28 @@ Use markdown para formatação:
                 </span>
               </div>
               
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <span className="font-medium">
-                  {new Date().toLocaleDateString('pt-BR')}
-                </span>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Users className="h-4 w-4" />
+                    <span className="font-medium">
+                      {Math.floor(Math.random() * 500 + 100).toLocaleString()} visitantes
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Heart className="h-4 w-4" />
+                    <span className="font-medium">
+                      {Math.floor(Math.random() * 50 + 10)} curtidas
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Calendar className="h-4 w-4" />
+                  <span className="font-medium">
+                    {new Date().toLocaleDateString('pt-BR')}
+                  </span>
+                </div>
               </div>
             </div>
         </div>
