@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Plus, Search, FileText, Folder, Calendar, User, LogOut } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -111,7 +112,7 @@ const Dashboard = () => {
             <Logo variant="compact" />
           </div>
 
-          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4">
             <div className="relative w-80 hidden md:block">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -121,6 +122,8 @@ const Dashboard = () => {
                 className="pl-10 h-10 bg-background/50 border-border/50 backdrop-blur-sm focus:bg-background focus:border-primary/50 transition-all duration-200"
               />
             </div>
+            
+            <ThemeToggle />
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
