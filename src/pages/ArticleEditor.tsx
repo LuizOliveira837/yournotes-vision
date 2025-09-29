@@ -207,7 +207,7 @@ const ArticleEditor = () => {
                    <SelectValue placeholder="Selecione um tópico..." />
                  </SelectTrigger>
                  <SelectContent>
-                   <SelectItem value="">
+                   <SelectItem value="none">
                      <span className="text-muted-foreground">Sem tópico</span>
                    </SelectItem>
                    {topics.map((topic) => (
