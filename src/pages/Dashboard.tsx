@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Search, FileText, Folder, Calendar, User, LogOut } from "lucide-react";
+import { Plus, Search, FileText, Folder, Calendar, User, LogOut, Trash2 } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,8 +32,16 @@ interface RecentArticle {
   preview: string;
 }
 
-const Dashboard = () => {
+  const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
+
+  const handleDeleteTopic = (e: React.MouseEvent, topicId: string) => {
+    e.stopPropagation();
+    if (confirm("Tem certeza que deseja deletar este tópico?")) {
+      // TODO: Implementar delete do tópico
+      console.log("Deletando tópico:", topicId);
+    }
+  };
 
   // Mock data - substituir por dados reais da API
   const topics: Topic[] = [
@@ -203,7 +211,7 @@ const Dashboard = () => {
                 </Badge>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">{/* ... keep existing code (topics mapping) */}
+                <div className="grid sm:grid-cols-2 gap-6">
                 {filteredTopics.map((topic, index) => (
                   <Card 
                     key={topic.id} 
@@ -224,6 +232,14 @@ const Dashboard = () => {
                             </CardDescription>
                           )}
                         </div>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-destructive hover:text-destructive-foreground"
+                          onClick={(e) => handleDeleteTopic(e, topic.id)}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
                       </div>
                     </CardHeader>
                     <CardContent className="pt-0">
