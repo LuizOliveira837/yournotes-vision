@@ -202,21 +202,24 @@ const ArticleEditor = () => {
                 <Label htmlFor="topic" className="text-base font-semibold mb-3 block">
                   Tópico
                 </Label>
-              <Select value={selectedTopic} onValueChange={setSelectedTopic}>
-                <SelectTrigger className="h-11">
-                  <SelectValue placeholder="Selecione um tópico..." />
-                </SelectTrigger>
-                <SelectContent>
-                  {topics.map((topic) => (
-                    <SelectItem key={topic.id} value={topic.id}>
-                      <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 rounded-full ${topic.color}`} />
-                        {topic.title}
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+               <Select value={selectedTopic} onValueChange={setSelectedTopic}>
+                 <SelectTrigger className="h-11">
+                   <SelectValue placeholder="Selecione um tópico..." />
+                 </SelectTrigger>
+                 <SelectContent>
+                   <SelectItem value="">
+                     <span className="text-muted-foreground">Sem tópico</span>
+                   </SelectItem>
+                   {topics.map((topic) => (
+                     <SelectItem key={topic.id} value={topic.id}>
+                       <div className="flex items-center gap-2">
+                         <div className={`w-2 h-2 rounded-full ${topic.color}`} />
+                         {topic.title}
+                       </div>
+                     </SelectItem>
+                   ))}
+                 </SelectContent>
+               </Select>
             </div>
 
             <div className="flex items-end gap-2">

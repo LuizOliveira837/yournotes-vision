@@ -9,6 +9,8 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import ArticleEditor from "./pages/ArticleEditor";
 import TopicView from "./pages/TopicView";
+import TopicCreate from "./pages/TopicCreate";
+import TopicEdit from "./pages/TopicEdit";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/article/new" element={<ArticleEditor />} />
           <Route path="/article/:id" element={<ArticleEditor />} />
           <Route path="/article/:id/edit" element={<ArticleEditor />} />
+          <Route path="/topic/new" element={<TopicCreate />} />
+          <Route path="/topic/:id/edit" element={<TopicEdit />} />
           <Route path="/topic/:id" element={<TopicView />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
