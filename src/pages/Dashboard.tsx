@@ -117,7 +117,7 @@ interface RecentArticle {
       <header className="border-b bg-card/90 backdrop-blur-xl sticky top-0 z-40 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Logo variant="compact" />
+            <Logo variant="compact" username="João" />
           </div>
 
             <div className="flex items-center gap-4">

@@ -4,14 +4,15 @@ interface LogoProps {
   className?: string;
   variant?: "default" | "compact";
   showSlogan?: boolean;
+  username?: string;
 }
 
-export function Logo({ className, variant = "default", showSlogan = false }: LogoProps) {
+export function Logo({ className, variant = "default", showSlogan = false, username }: LogoProps) {
   if (variant === "compact") {
     return (
       <div className={cn("flex items-center gap-2", className)}>
         <h1 className="text-xl font-mono font-light tracking-wide text-foreground">
-          YourNotes
+          {username && <span className="text-primary font-medium">{username}.</span>}YourNotes
         </h1>
       </div>
     );
@@ -22,7 +23,7 @@ export function Logo({ className, variant = "default", showSlogan = false }: Log
       {/* Large handwritten style logo */}
       <div className="text-center">
         <h1 className="text-5xl md:text-6xl font-mono font-light tracking-wide text-foreground">
-          YourNotes
+          {username && <span className="text-primary font-medium">{username}.</span>}YourNotes
         </h1>
         
         {showSlogan && (
