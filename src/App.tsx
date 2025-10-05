@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 import ArticleEditor from "./pages/ArticleEditor";
 import TopicView from "./pages/TopicView";
 import TopicCreate from "./pages/TopicCreate";
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/article/new" element={<ArticleEditor />} />
           <Route path="/article/:id" element={<ArticleEditor />} />
           <Route path="/article/:id/edit" element={<ArticleEditor />} />
